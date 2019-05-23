@@ -15,7 +15,7 @@ class App extends Component{
 
 
   componentDidMount(){
-    fetch(`http://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}`)
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}`)
     .then(response => response.json())
     .then(res => {
       //console.log(res.data.results)
