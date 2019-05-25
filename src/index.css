@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://themepack.me/i/c/749x468/media/g/230/marvel-theme-11.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  max-height: 100vh;
 }
 
 code {
