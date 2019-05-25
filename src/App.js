@@ -1,5 +1,7 @@
 import React, { Component} from 'react';
+import { Button, Card, Col, Row, Container, InputGroup, FormControl } from 'react-bootstrap';
 import './App.css';
+
 
 class App extends Component{
 
@@ -15,13 +17,87 @@ class App extends Component{
 
 
   componentDidMount(){
-    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}`)
+    let list = []
+
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100`)
     .then(response => response.json())
     .then(res => {
       //console.log(res.data.results)
+          list = [...res.data.results]
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=200`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=300`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=400`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=500`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=600`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=700`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=800`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=900`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=1000`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log(this.state.marvelCharacters)
+    });
+    fetch(`https://gateway.marvel.com/v1/public/characters?ts=${this.state.timestamp}&apikey=${this.state.marvelapikey}&hash=${this.state.marvelapihash}&limit=100&offset=1100`)
+    .then(response => response.json())
+    .then(res => {
+      //console.log(res.data.results)
+        list = list.concat(res.data.results)
+        console.log("LIST>>>",list)
         this.setState({
-          marvelCharacters : [...res.data.results],
-          list : [...res.data.results],
+          marvelCharacters : list,
+          list : list ,
           loading : false
         })
         console.log(this.state.marvelCharacters)
@@ -49,30 +125,40 @@ class App extends Component{
     }else if(this.state.list.length > 0){
       content = this.state.list.map((character)=>{
         return (
-        <div className="ch">
-          <div className="ch-pic">
-            <img src={character.thumbnail.path} />
-          </div>
-          <div className="ch-name">
-            <p>{character.name}</p>
-          </div>
-        </div>
+          <Card style={{ width: '18rem', margin: '20px 40px ' }}>
+          <Card.Img variant="top" src={character.thumbnail.path+"/standard_fantastic."+character.thumbnail.extension} alt="Character" />
+          <Card.Body>
+            <Card.Title>{character.name}</Card.Title>
+            <Card.Text>
+             
+            </Card.Text>
+          </Card.Body>
+        </Card>
       )
       })
     }    
 
     return(
       <div className="main">
-            <div className="row">
+        <Container>
+            <Row className="row">
                 <div className="searchBar">
-                  <input className="searchBar" type="text" onChange={(e)=>this.searchNameHandler(e)} value={this.state.searchValue}></input>        
+                <InputGroup size="lg" className="mb-3">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text id="inputGroup-sizing-lg">Search</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl aria-label="Large" 
+                               onChange={(e)=>this.searchNameHandler(e)} 
+                               value={this.state.searchValue}
+                               placeholder="Search Your Fav Character"
+                               aria-describedby="inputGroup-sizing-sm" />
+                </InputGroup>
                </div>
-            </div>
-            <div className="row">
-              <div className="scrollableArea">
+            </Row>
+            <Row className="Scrollable">
                     {content}
-              </div>
-            </div>
+            </Row>
+          </Container>
       </div>
     )
   }
