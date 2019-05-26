@@ -121,7 +121,7 @@ class App extends Component{
   render(){
     let content = [];
     if(this.state.loading){
-      content = <div className="loader"></div>
+      content = <div className="Loader"><div className="loader"></div></div>
     }else if(this.state.list.length > 0){
       content = this.state.list.map((character)=>{
         return (
@@ -158,6 +158,9 @@ class App extends Component{
             <Row className="Scrollable">
                     {content}
             </Row>
+            <div class="footer">
+                <p>Made with &hearts;</p>
+            </div>
           </Container>
       </div>
     )
