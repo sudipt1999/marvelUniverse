@@ -63,7 +63,13 @@
   text-align: center;
   overflow-y: auto;  
 }
-
+.Scrollable {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+.Scrollable::-webkit-scrollbar { 
+  display: none;  
+}
 .searchBar{
   margin-top: 20px;
   width:100%;
@@ -83,7 +89,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height:30px;
+  height: 30px;
   background-color:#000;
   color: white;
   text-align: center;
