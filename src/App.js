@@ -125,6 +125,7 @@ class App extends Component {
                 {
                   this.state.list.map((character, index) => {
                     return (
+                      <div class="card-wrapper">
                       <Card key={index}>
                         <Card.Img variant="top" src={character.thumbnail.path + "/standard_fantastic." + character.thumbnail.extension} alt="Character" />
                         <Card.Body>
@@ -134,6 +135,7 @@ class App extends Component {
                           </Card.Text>
                         </Card.Body>
                       </Card>
+                      </div>
                     )
                   })}
               </InfiniteScroll>
