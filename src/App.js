@@ -1,57 +1,87 @@
-import React, { Component } from 'react';
-import { Navbar, Nav, NavItem, Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import CharactersPage from './components/CharactersPage';
-import SeriesPage from './components/SeriesPage';
+import React, {useEffect, useState} from 'react';
+import {Card, Container, FormControl, InputGroup, Row} from 'react-bootstrap';
 import './App.css';
+import Pagination from "./components/Pagination";
+import {withCharacters} from "./context/CharacterContext";
 
-class App extends Component {
-  state = {};
+const App = ({isLoading, characters, characterPages, fetchCharactersByNamePaginated, fetchCharactersPaginated}) => {
+  const [searchQuery, setSearchQuery] = useState('');
 
-  componentDidMount() {}
+  useEffect(() => {
+    fetchCharactersPaginated(1);
+  }, []);
 
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <Container>
-            <Navbar className="nav">
-              <Navbar.Brand as={Link} to="/">
-                Marvel Universe
-              </Navbar.Brand>
-              <Nav className="mr-auto">
-                <NavItem eventkey={2} href="/characters">
-                  <Nav.Link as={Link} to="/characters">
-                    Characters
-                  </Nav.Link>
-                </NavItem>
-                <NavItem eventkey={3} href="/characters">
-                  <Nav.Link as={Link} to="/series">
-                    Series
-                  </Nav.Link>
-                </NavItem>
-              </Nav>
-            </Navbar>
-            <Switch>
-              <Route exact path="/">
-                <h1 style={{ color: 'white', margin: '20px 40px ' }}>Welcome to Marvel Universe!</h1>
-              </Route>
-              <Route path="/characters">
-                <CharactersPage />
-              </Route>
-              <Route path="/series">
-                <SeriesPage />
-              </Route>
-            </Switch>
-            <div className="footer">
-              <p>Made with &hearts;</p>
+  let typingTimer;
+  const TYPING_TIMEOUT = 1000;
+
+  const searchNameHandler = (e) => {
+    const targetValue = e.target.value;
+
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(() => {
+      setSearchQuery(targetValue);
+      if (!isLoading) {
+        if (targetValue) {
+          fetchCharactersByNamePaginated(targetValue, 1);
+        } else {
+          fetchCharactersPaginated(1);
+        }
+      }
+    }, TYPING_TIMEOUT);
+  };
+
+  const onPageChanged = page => {
+    if (searchQuery) {
+      fetchCharactersByNamePaginated(searchQuery, page);
+    } else {
+      fetchCharactersPaginated(page);
+    }
+  };
+
+  return (
+    <div className="main">
+      <Container>
+        <Row className="row">
+          <div className="searchBar">
+            <InputGroup size="lg" className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroup-sizing-lg">Search</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl aria-label="Large"
+                           onChange={searchNameHandler}
+                           placeholder="Search Your Fav Character"
+                           aria-describedby="inputGroup-sizing-sm"/>
+            </InputGroup>
+          </div>
+        </Row>
+        <Pagination pages={characterPages} onPageChanged={onPageChanged}/>
+        <Row className="Scrollable">
+          {isLoading ? (
+            <div className="Loader">
+              <div className="loader"></div>
             </div>
-          </Container>
-        </Router>
-      </div>
-    );
-  }
-}
+          ) : characters.map(character => (
+            <Card key={character.id} style={{width: '18rem', margin: '20px 40px '}}>
+              <Card.Img variant="top"
+                        src={character.thumbnail.path + "/standard_fantastic." + character.thumbnail.extension}
+                        alt="Character"
+              />
+              <Card.Body>
+                <Card.Title>{character.name}</Card.Title>
+                <Card.Text>
 
-export default App;
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+        </Row>
+        <div className="footer">
+          <p>Made with &hearts;</p>
+        </div>
+      </Container>
+    </div>
+  )
+};
+
+export default withCharacters(App);
