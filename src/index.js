@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
 import {CharacterProvider} from "./context/CharacterContext";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(<CharacterProvider>
   <App/>
