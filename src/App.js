@@ -55,7 +55,7 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
             </InputGroup>
           </div>
         </Row>
-        <Pagination pages={characterPages} onPageChanged={onPageChanged}/>
+        <Pagination pages={characterPages} onPageChanged={onPageChanged} className="pagination"/>
         <Row className="Scrollable">
           {isLoading ? (
             <div className="Loader">

@@ -78,8 +78,8 @@
 .Loader{
   width:300px;
   height:300px;
-  margin-top:auto;
-  margin-left:40%;
+  margin-top:10%;
+  margin-left:45%;
   text-align: center;
 }
 
@@ -92,4 +92,13 @@
   background-color:#000;
   color: white;
   text-align: center;
+}
+.searchBar{
+  width: 100%;
+}
+.pagination{
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  left: 30%;
 }
