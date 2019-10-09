@@ -55,7 +55,6 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
             </InputGroup>
           </div>
         </Row>
-        <Pagination pages={characterPages} onPageChanged={onPageChanged}/>
         <Row className="Scrollable">
           {isLoading ? (
             <div className="Loader">
@@ -74,8 +73,10 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
                 </Card.Text>
               </Card.Body>
             </Card>
-          ))}
+          ))
+          }
         </Row>
+        <Pagination classNmae="pagination" pages={characterPages} onPageChanged={onPageChanged}/>
         <div className="footer">
           <p>Made with &hearts;</p>
         </div>

@@ -62,6 +62,10 @@
   box-sizing: border-box;
 }
 
+.pagination {
+  margin-top: 20px;
+}
+
 .Scrollable{
   max-height: 80vh !important;
   text-align: center;
