@@ -7,7 +7,10 @@
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-infinite-scroll-component": "^4.5.3",
+    "react-loading-overlay": "^1.0.1",
+    "react-scripts": "3.0.1",
+    "react-spinners": "^0.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
