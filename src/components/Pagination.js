@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import * as Bootstrap from 'react-bootstrap';
 
+import './Pagination.css';
+
 const Pagination = ({pages, onPageChanged}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const paginationItems = [];
@@ -44,9 +46,11 @@ const Pagination = ({pages, onPageChanged}) => {
   }
 
   return (
-    <Bootstrap.Pagination>
-      {paginationItems}
-    </Bootstrap.Pagination>
+    <div className="pagination-container">
+      <Bootstrap.Pagination>
+        {paginationItems}
+      </Bootstrap.Pagination>
+    </div>
   );
 };
 
