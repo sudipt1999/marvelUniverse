@@ -37,15 +37,17 @@ class CharactersPage extends Component {
     const { marvelCharacters, searchValue } = this.state;
     return searchValue.length === 0
       ? marvelCharacters
-      : marvelCharacters.filter(char => char && char.name && char.name.toLowerCase().includes(this.state.searchValue.toLowerCase()));
+      : marvelCharacters.filter(
+          char => char && char.name && char.name.toLowerCase().includes(this.state.searchValue.toLowerCase())
+        );
   };
 
   renderCards() {
     const { marvelCharacters } = this.state;
     if (marvelCharacters.length === 0) return [];
     const filteredList = this.filter();
-    return filteredList.map((character, i) => {
-      return <DisplayCard key={i} item={character} />;
+    return filteredList.map(({ thumbnail, name }, i) => {
+      return <DisplayCard key={i} thumbnail={thumbnail} title={name} />;
     });
   }
 

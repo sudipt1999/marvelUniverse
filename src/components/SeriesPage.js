@@ -37,15 +37,17 @@ class SeriesPage extends Component {
     const { marvelSeries, searchValue } = this.state;
     return searchValue.length === 0
       ? marvelSeries
-      : marvelSeries.filter(char => char && char.name && char.name.toLowerCase().includes(this.state.searchValue.toLowerCase()));
+      : marvelSeries.filter(
+          char => char && char.name && char.name.toLowerCase().includes(this.state.searchValue.toLowerCase())
+        );
   };
 
   renderCards() {
     const { marvelSeries } = this.state;
     if (marvelSeries.length === 0) return [];
     const filteredList = this.filter();
-    return filteredList.map((character, i) => {
-      return <DisplayCard key={i} item={character} />;
+    return filteredList.map(({ thumbnail, title }, i) => {
+      return <DisplayCard key={i} thumbnail={thumbnail} title={title} />;
     });
   }
 
