@@ -146,11 +146,6 @@ class App extends Component {
       </LoadingOverlay>
     )
   }
-
-
-
-
-
 }
 
 export default App;
