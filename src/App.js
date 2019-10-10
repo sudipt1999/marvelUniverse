@@ -43,15 +43,23 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
     <div className="main">
       <Container>
         <Row className="row">
-          <div className="searchBar">
-            <InputGroup size="lg" className="mb-3">
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-lg">Search</InputGroup.Text>
+          <div className="searchBar" style={{width:'32%'}} >
+            <InputGroup size="lg" className="mb-3 " >
+              <InputGroup.Prepend >
+                <InputGroup.Text  
+                  style={{backgroundColor:'#2e86de',color:'whitesmoke',border:'1px solid #2e86de'}} 
+                  id="inputGroup-sizing-lg"
+                >
+                  Search
+                </InputGroup.Text>
               </InputGroup.Prepend>
-              <FormControl aria-label="Large"
-                           onChange={searchNameHandler}
-                           placeholder="Search Your Fav Character"
-                           aria-describedby="inputGroup-sizing-sm"/>
+              <FormControl
+                style={{border:'2px solid #2e86de'}} 
+                aria-label="Large"
+                onChange={searchNameHandler}
+                placeholder="Search Your Fav Character"
+                aria-describedby="inputGroup-sizing-sm"
+              />
             </InputGroup>
           </div>
         </Row>
