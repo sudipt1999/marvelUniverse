@@ -42,15 +42,13 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
   return (
     <div className="main">
       <Container>
-        <Row className="row">
+        <Row className="row justify-content-center">
           <div className="searchBar">
             <InputGroup size="lg" className="mb-3">
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-lg">Search</InputGroup.Text>
-              </InputGroup.Prepend>
-              <FormControl aria-label="Large"
+              <FormControl className = "form-design"
+                           aria-label="Large"
                            onChange={searchNameHandler}
-                           placeholder="Search Your Fav Character"
+                           placeholder="Search For Character You Love"
                            aria-describedby="inputGroup-sizing-sm"/>
             </InputGroup>
           </div>
