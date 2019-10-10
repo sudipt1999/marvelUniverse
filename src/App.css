@@ -102,3 +102,12 @@
   width: 100%;
   left: 30%;
 }
+.displayCard{
+  width: 18rem;
+  margin: 20px 40px;
+  box-shadow: #282c34 0 10px 10px;
+}
+.displayCard:hover{
+  transform: scale(1.1);
+
+}

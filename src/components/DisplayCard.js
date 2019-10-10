@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
+import './DisplayCard.css'
 
 class DisplayCard extends Component {
   render() {
@@ -7,7 +8,7 @@ class DisplayCard extends Component {
     if (!thumbnail) return null;
 
     return (
-      <Card style={{ width: '18rem', margin: '20px 40px ' }}>
+      <Card className="displayCard" >
         <Card.Img variant="top" src={`${thumbnail.path}/standard_fantastic.${thumbnail.extension}`} alt={title} />
         <Card.Body>
           <Card.Title>{title}</Card.Title>
