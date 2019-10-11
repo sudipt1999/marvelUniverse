@@ -83,6 +83,22 @@
   text-align: center;
 }
 
+.searchBar{
+  margin-top: 10px;
+  width: 50%;
+}
+
+.searchBar input{   
+  color: white;
+  background-color: rgba(0,0,0,0.8);
+  border: 2px solid white;
+}
+
+.searchBar input:focus{ 
+  color: white;
+  background-color: rgba(0,0,0,0.8);
+  }
+
 .footer {
   position: fixed;
   left: 0;
