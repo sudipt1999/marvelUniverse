@@ -60,7 +60,7 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
               <div className="loader"></div>
             </div>
           ) : characters.map(character => (
-            <Card key={character.id} style={{width: '18rem', margin: '20px 40px '}}>
+            <Card key={character.id} className="displayCard">
               <Card.Img variant="top"
                         src={character.thumbnail.path + "/standard_fantastic." + character.thumbnail.extension}
                         alt="Character"
