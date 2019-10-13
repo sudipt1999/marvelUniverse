@@ -36,20 +36,6 @@
   }
 }
 
-.loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .main{
   width:100%;
   height:100vh;
@@ -76,11 +62,102 @@
 }
 
 .Loader{
-  width:300px;
-  height:300px;
-  margin-top:10%;
-  margin-left:45%;
-  text-align: center;
+  width: 400px;
+  height:400px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loader {
+  display: block;
+  width: 300px;
+  height: 300px;
+  border: 30px solid #BF373A;
+  border-radius: 50%;
+  background: #FDFFFD;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotateY(0deg);
+    transform-origin: 50% 50%;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateY(360deg);
+    transform-origin: 50% 50%;
+  }
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  border: 30px solid #BF373A;
+  border-radius: 50%;
+  background: #091732;
+}
+
+.star-container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 85px;
+  height: 85px;
+}
+
+.star {
+  margin: 45px 0;
+  margin-left: -35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid #FDFFFD;
+  border-left: 100px solid transparent;
+  transform: rotate(35deg) translate(-50%, -50%) scale(0.58);
+  z-index: 2;
+}
+
+.star:before {
+  border-bottom: 80px solid #FDFFFD;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -45px;
+  left: -65px;
+  display: block;
+  content: '';
+  transform: rotate(-35deg);
+}
+
+.star:after {
+  position: absolute;
+  display: block;
+  top: 7px;
+  left: -111px;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid #FDFFFD;
+  border-left: 100px solid transparent;
+  transform: rotate(-70deg);
+  content: '';
 }
 
 .searchBar{

@@ -57,7 +57,9 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
         <Row className="Scrollable">
           {isLoading ? (
             <div className="Loader">
-              <div className="loader"></div>
+              <div className="loader">
+                  <div className="star"></div>
+              </div>
             </div>
           ) : characters.map(character => (
             <Card key={character.id} className="displayCard">
