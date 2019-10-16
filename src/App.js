@@ -59,10 +59,12 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
         <Row className="Scrollable">
           {isLoading ? (
             <div className="Loader">
-              <div className="loader"></div>
+              <div className="loader">
+                  <div className="star"></div>
+              </div>
             </div>
           ) : characters.map(character => (
-            <Card className="pa3 " key={character.id} style={{width: '18rem', margin: '20px 40px '}}>
+
               <Card.Img variant="top"
                         src={character.thumbnail.path + "/standard_fantastic." + character.thumbnail.extension}
                         alt="Character"
