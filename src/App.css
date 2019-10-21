@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
+
 .App {
   text-align: center;
 }
@@ -42,6 +44,7 @@
   padding: 0.5%;
   background: inherit;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .card{
@@ -49,7 +52,7 @@
 }
 
 .Scrollable{
-  max-height: 80vh !important;
+  max-height: 75vh !important;
   text-align: center;
   overflow-y: auto;  
 }
@@ -65,8 +68,6 @@
   width: 400px;
   height:400px;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .loader {
@@ -160,9 +161,9 @@
   content: '';
 }
 
-.searchBar{
+div.searchBar{
   margin-top: 10px;
-  width: 50%;
+  width: 58%;
 }
 
 .searchBar input{   
@@ -201,6 +202,134 @@
   box-shadow: #282c34 0 10px 10px;
 }
 .displayCard:hover{
-  transform: scale(1.1);
+  animation: vibrate 0.3s ease infinite ;
+}
 
+@keyframes vibrate {
+  0% {
+    transform: scale(1.1) rotate(0deg);
+  }
+
+  25% {
+    transform: scale(1.1) rotate(2deg);
+  }
+
+  50% {
+    transform: scale(1.1) rotate(0deg);
+  }
+
+  75% {
+    transform: scale(1.1) rotate(-2deg);
+  }
+
+  100% {
+    transform: scale(1.1) rotate(0deg);
+  }
+
+}
+
+.Scrollable.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+  overflow-y: auto;
+}
+
+.displayCard.card {
+  width: 14rem;
+  margin: 1rem 0;
+  box-shadow: 0 0 15px 10px #67070b;
+  transition: all 0.75s ease;
+  border-radius: 1rem;
+  background: #cabdbc;
+}
+
+.card .card-img-top {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.card .card-body .card-title.h5 {
+  margin-bottom: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #510e11;
+}
+
+.pagination {
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  margin: 0 auto;
+  bottom: 39px;
+}
+
+.searchBar .form-design.form-control {
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  background-color: rgba(110,5,9,0.8);
+  border: 5px solid #510e11;
+}
+
+.searchBar .form-design.form-control:focus {
+  box-shadow: 0 0 0 0.2rem #6f060b;
+}
+
+.searchBar .form-design.form-control::-webkit-input-placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: rgb(202,189,188);
+}
+
+.searchBar .form-design.form-control::-moz-placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: rgb(202,189,188);
+}
+
+.searchBar .form-design.form-control::-ms-input-placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: rgb(202,189,188);
+}
+
+.searchBar .form-design.form-control:-moz-placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: rgb(202,189,188);
+}
+
+.footer p {
+  margin: 0 auto;
+  padding: 3px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+li.page-item:nth-child(1) .page-link {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.page-item:last-child a.page-link {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  color: #7a0d12;
+}
+
+li.page-item a.page-link, li.page-item span.page-link {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #7a0d12;
+}
+
+li.page-item.active .page-link {
+  background-color: #7a0d12;
+  border-color: #7a0d12;
+  color: #fff;
 }
