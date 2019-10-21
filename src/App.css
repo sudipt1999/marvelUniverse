@@ -187,16 +187,17 @@
   text-align: center;
 }
 .searchBar{
-  width: 100%;
+  width: 50%;
 }
 .pagination{
-  position: absolute;
-  bottom: 20px;
+  position: sticky; /* absolute */
+  justify-content: center;
+  top: -10px; /* bottom: 20px */
   width: 100%;
   left: 30%;
 }
 .displayCard{
-  width: 18rem;
+  width: 12rem; /* 18rem */
   margin: 20px 40px;
   box-shadow: #282c34 0 10px 10px;
 }
