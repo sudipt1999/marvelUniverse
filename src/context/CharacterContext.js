@@ -39,6 +39,22 @@ const CharacterProvider = ({children}) => {
       });
   };
 
+  const fetchCharactersById = (id) => {
+    setIsLoading(true);
+
+    API.fetchCharacterById(id)
+      .then(apiData => {
+        console.log('apiData', apiData);
+        setCharacters(apiData.results);
+        setCharacterPages(Math.ceil(apiData.total / apiConfig.perPage));
+        setIsLoading(false);
+      })
+      .catch(error => {
+        setCharacters([]);
+        setIsLoading(false);
+      });
+  };
+
   return (
     <Provider value={{
       fetchCharactersPaginated,

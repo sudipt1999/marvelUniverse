@@ -26,7 +26,21 @@ const fetchCharactersByNamePaginated = (name, page) => {
   })
 };
 
+const fetchCharacterById = (id) => {
+  return new Promise((resolve, reject) => {
+    fetch(`https://gateway.marvel.com/v1/public/characters/${id}?ts=${apiConfig.timestamp}&apikey=${apiConfig.marvelapikey}&hash=${apiConfig.marvelapihash}`)
+      .then(res => res.json())
+      .then(res => {
+        resolve(res.data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  })
+};
+
 export {
   fetchCharactersPaginated,
-  fetchCharactersByNamePaginated
+  fetchCharactersByNamePaginated,
+  fetchCharacterById
 };

@@ -4,6 +4,7 @@ import {Card, Container, FormControl, InputGroup, Row} from 'react-bootstrap';
 import './App.css';
 import Pagination from "./components/Pagination";
 import {withCharacters} from "./context/CharacterContext";
+import CharacterProfile from "./components/characterProfile/CharacterProfile";
 
 const App = ({isLoading, characters, characterPages, fetchCharactersByNamePaginated, fetchCharactersPaginated}) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,6 +40,14 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
     }
   };
 
+  // const searchSelectedCharacter = async () => {
+  //   this.toggleLoader(true);
+  //   const marvelCharacter = await fetchCharacterById(1009664);
+  //   console.log('marvelCharacter', marvelCharacter);
+  //   this.toggleLoader(false);
+  //   this.setState({ marvelCharacter: marvelCharacter.results[0] });
+  // };
+
   return (
     <div className="main">
       <Container>
@@ -56,26 +65,27 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
           </div>
         </Row>
         <Pagination pages={characterPages} onPageChanged={onPageChanged}/>
-        <Row className="Scrollable">
+        {(!isLoading && characters.length > 0)&& <CharacterProfile character={characters[0]} />}
+        {/* <Row className="Scrollable">
           {isLoading ? (
             <div className="Loader">
               <div className="loader"></div>
             </div>
           ) : characters.map(character => (
             <Card key={character.id} style={{width: '18rem', margin: '20px 40px '}}>
-              <Card.Img variant="top"
-                        src={character.thumbnail.path + "/standard_fantastic." + character.thumbnail.extension}
-                        alt="Character"
+              <Card.Img
+                variant="top"
+                src={character.thumbnail.path + "/standard_fantastic." + character.thumbnail.extension}
+                alt="Character"
               />
               <Card.Body>
                 <Card.Title>{character.name}</Card.Title>
                 <Card.Text>
-
                 </Card.Text>
               </Card.Body>
             </Card>
           ))}
-        </Row>
+        </Row> */}
         <div className="footer">
           <p>Made with &hearts;</p>
         </div>
