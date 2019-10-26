@@ -1,3 +1,3 @@
-<h1>Create a React App</h1>
-
-## Happy Hacking Guys
+# MARVELS UNIVERSE APP
+<br>
+<p>Find all your marvel characters at one single place</p>
