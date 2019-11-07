@@ -41,11 +41,13 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
 
   return (
     <div className="main">
+       <h1 style={{textAlign: 'center'}}>MALVEL UNIVERSE</h1>
       <Container>
         <Row className="row justify-content-center">
           <div className="searchBar">
             <InputGroup size="lg" className="mb-3">
               <FormControl className = "form-design"
+                           style={{width: '340px'}}
                            aria-label="Large"
                            onChange={searchNameHandler}
                            placeholder="Search For Character You Love"
@@ -53,7 +55,7 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
             </InputGroup>
           </div>
         </Row>
-        <Pagination pages={characterPages} onPageChanged={onPageChanged} className="pagination"/>
+        
         <Row className="Scrollable">
           {isLoading ? (
             <div className="Loader">
@@ -62,22 +64,23 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
               </div>
             </div>
           ) : characters.map(character => (
-            <Card key={character.id} className="displayCard">
+
               <Card.Img variant="top"
                         src={character.thumbnail.path + "/standard_fantastic." + character.thumbnail.extension}
                         alt="Character"
               />
               <Card.Body>
-                <Card.Title>{character.name}</Card.Title>
+                <Card.Title style={{color: "#fff", background: "#171515"}}>{character.name}</Card.Title>
                 <Card.Text>
 
                 </Card.Text>
               </Card.Body>
             </Card>
           ))}
+           <Pagination pages={characterPages} onPageChanged={onPageChanged} className="pagination"/>
         </Row>
         <div className="footer">
-          <p>Made with &hearts;</p>
+          <p>Made with &hearts; Marvel</p>
         </div>
       </Container>
     </div>
