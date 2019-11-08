@@ -13,7 +13,7 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
   }, []);
 
   let typingTimer;
-  const TYPING_TIMEOUT = 1000;
+  const TYPING_TIMEOUT = 3000;
 
   const searchNameHandler = (e) => {
     const targetValue = e.target.value;
