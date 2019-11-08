@@ -9,7 +9,7 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    fetchCharactersPaginated(1);
+    fetchCharactersPaginated(1);    
   }, []);
 
   let typingTimer;
@@ -40,21 +40,21 @@ const App = ({isLoading, characters, characterPages, fetchCharactersByNamePagina
   };
 
   return (
-    <div className="main">
+    <div className="main"> 
       <Container>
-        <Row className="row justify-content-center">
-          <div className="searchBar">
-            <InputGroup size="lg" className="mb-3">
+        <Row className="row justify-content-center"> 
+          <div className="searchBar"> 
+            <InputGroup size="md" className="mb-3"> {/* size="lg" */} 
               <FormControl className = "form-design"
                            aria-label="Large"
                            onChange={searchNameHandler}
-                           placeholder="Search For Character You Love"
+                           placeholder="Search for your favorite Marvel Universe Character.."
                            aria-describedby="inputGroup-sizing-sm"/>
             </InputGroup>
           </div>
         </Row>
         <Pagination pages={characterPages} onPageChanged={onPageChanged} className="pagination"/>
-        <Row className="Scrollable">
+          <Row className="Scrollable"> 
           {isLoading ? (
             <div className="Loader">
               <div className="loader">
